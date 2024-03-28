@@ -1,16 +1,14 @@
 {
-  "name": "gussing-game",
-  "version": "1.0.0",
+  "name":"alishba-atm-machine",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
-  "type":"module",
-  "publishConfig": {
-    "access": "public"
-  },
-  "bin": "main.js",
+  "type": "module",
+  "bin":"index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {

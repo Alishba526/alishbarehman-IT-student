@@ -1,27 +1,54 @@
-import inquirer from "inquirer";
+#!/usr/bin/env node
 
-const answer = await inquirer.prompt([
-  { message: " enter first number", type: "number", name: "firstNumber" },
-  { message: " enter second number", type: "number", name: "secondNumber" },
-  {
-    message: "select one of the operator to perform action",
-    type: "list",
-    name: "operator",
-    choices: ["addition", "subtraction", "multiplication", "devision"],
-  },
-]);
-console.log(answer);
+import inquirer from "inquirer"
 
-//condition statment;
+let myBalance = 50000; //dollar
 
-if (answer.operator === "additon") {
-  console.log(answer.firstNumber + answer.secondNumber);
-} else if (answer.operator === "subtraction") {
-  console.log(answer.firstNumber - answer.secondNumber);
-} else if (answer.operator === "multiplication") {
-  console.log(answer.firstNumber * answer.secondNumber);
-} else if (answer.operator === "devision") {
-  console.log(answer.firstNumber/answer.secondNumber);
-} else {
-  console.log("please valid a number");
+let myPin=6789;
+
+let pinAnswer =await inquirer.prompt([
+
+{ name: "pin",
+ message: "enter your correct pin code ......💯",
+  type: "number",
+
 }
+]);
+
+if(pinAnswer.pin === myPin){
+    console.log("Correct pin code✅");
+}
+let operationAns =await inquirer.prompt([
+    {name:"operation",
+    message:"please select option.....❓",
+    choices: ["withdraw","check balance"],
+    type:"list",
+}
+    
+]);
+   
+    if (operationAns.operation ==="withdraw"){
+         let amountAns =await inquirer.prompt(
+    [
+    {name:"amount",
+    message: "enter your amount ...💲💱💱 ",
+     type: "number",
+
+    
+    }
+    
+]);
+    
+    myBalance -= amountAns.amount;
+    
+    console.log("your remaining balance is:" + myBalance);
+    
+    }
+    
+    else if (operationAns.operation=== "check balance")
+    { console.log("your balance is: "+ myBalance);
+    
+    }
+        else {
+    console.log("incorrect pin number");
+    }
